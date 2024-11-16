@@ -2,24 +2,26 @@ using System;
 
 public class Car
 {
-    public string X { get; set; } // Marka
+    public string X { get; set; } // Make
     public string Model { get; set; }
     public double Speed { get; private set; }
     public double Fuel { get; private set; }
     public double MaxFuel { get; private set; }
+    public string SeatColor { get; set; } 
 
-    public Car(string x, string model, double maxFuel)
+    public Car(string x, string model, double maxFuel, string seatColor)
     {
         X = x;         
         Model = model; 
         Speed = 0;
         MaxFuel = maxFuel;
         Fuel = maxFuel;
+        SeatColor = seatColor; 
     }
 
     public void Status()
     {
-        Console.WriteLine($"Car Status: Make: {X}, Model: {Model}, Speed: {Speed} km/h, Fuel: {Fuel:F2}/{MaxFuel} L");
+        Console.WriteLine($"Car Status: Make: {X}, Model: {Model}, Speed: {Speed} km/h, Fuel: {Fuel:F2}/{MaxFuel} L, Seat Color: {SeatColor}");
     }
 
     public void Acceleration(double amount)
@@ -35,11 +37,9 @@ public class Program
 {
     public static void Main()
     {
-        Car car = new Car("Renault", "Brodway", 60); 
+        Car car = new Car("Renault", "Brodway", 60, "Black"); // Added seat color
 
         car.Status();       
         car.Acceleration(30); 
     }
 }
-
-
